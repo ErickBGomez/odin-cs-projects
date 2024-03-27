@@ -1,6 +1,7 @@
 function fibs(n) {
   const sequence = [0, 1];
 
+  // Handle possible "n" values
   if (n < 0) return "Invalid position";
   else if (n <= 1) return sequence.slice(0, n);
 
@@ -12,9 +13,11 @@ function fibs(n) {
 }
 
 function fibsRec(n, sequence = [0, 1]) {
+  // Handle possible "n" values
   if (n < 0) return "Invalid position";
   else if (n <= 1) return sequence.slice(0, n);
 
+  // Base case
   if (sequence.length >= n) return sequence;
 
   return fibsRec(n, [
