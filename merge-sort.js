@@ -1,4 +1,5 @@
 function mergeSort(array) {
+  // If array is one element, quit
   if (array.length <= 1) {
     return array;
   }
@@ -17,6 +18,7 @@ function merge(leftArray, rightArray) {
   let leftPosition = 0;
   let rightPosition = 0;
 
+  // Move position of each array when adding elements to the result array
   while (leftPosition < leftArray.length && rightPosition < rightArray.length) {
     if (leftArray[leftPosition] < rightArray[rightPosition]) {
       result.push(leftArray[leftPosition]);
