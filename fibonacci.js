@@ -1,16 +1,13 @@
 function fibs(n) {
   if (n <= 1) return n;
 
-  let total = 0;
-  const previous = [1, 0];
+  sequence = [0, 1];
 
-  for (let i = 0; i < n - 1; i++) {
-    total = previous[0] + previous[1];
-    previous[1] = previous[0];
-    previous[0] = total;
+  for (let i = 2; i < n; i++) {
+    sequence[i] = sequence[i - 1] + sequence[i - 2];
   }
 
-  return total;
+  return sequence;
 }
 
 function fibsRec(n) {
@@ -19,9 +16,9 @@ function fibsRec(n) {
   return fibsRec(n - 1) + fibsRec(n - 2);
 }
 
-const position = 40;
+const position = 8;
 
 console.log(`Calculating fibonacci sequence of ${position}:`);
 console.log(
-  ` - Iterative: ${fibs(position)}\n - Recursive: ${fibsRec(position)}`
+  ` - Iterative: [${fibs(position)}]\n - Recursive: ${fibsRec(position)}`
 );
