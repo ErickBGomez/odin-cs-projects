@@ -36,10 +36,5 @@ function merge(leftArray, rightArray) {
   return result;
 }
 
-const result = mergeSort([105, 79, 100, 110]);
-console.log(result);
-
-// const array = [1, 2, 3];
-
-// console.log(array.splice(0, 1));
-// console.log(array);
+const sortedArray = mergeSort([105, 79, 100, 110]);
+console.log(sortedArray); // [ 79, 100, 105, 110 ]
