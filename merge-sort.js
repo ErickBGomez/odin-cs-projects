@@ -14,8 +14,30 @@ function mergeSort(array) {
 
 function merge(leftArray, rightArray) {
   const result = [];
+  let leftPosition = 0;
+  let rightPosition = 0;
+
+  while (leftPosition < leftArray.length && rightPosition < rightArray.length) {
+    if (leftArray[leftPosition] < rightArray[rightPosition]) {
+      result.push(leftArray[leftPosition]);
+      leftPosition++;
+    } else {
+      result.push(rightArray[rightPosition]);
+      rightPosition++;
+    }
+  }
+
+  // Remaning elements
+  result.push(...leftArray.slice(leftPosition));
+  result.push(...rightArray.slice(rightPosition));
 
   return result;
 }
 
-console.log([] < [6]);
+const result = mergeSort([105, 79, 100, 110]);
+console.log(result);
+
+// const array = [1, 2, 3];
+
+// console.log(array.splice(0, 1));
+// console.log(array);
