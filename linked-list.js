@@ -123,7 +123,7 @@ class LinkedList {
     return -1;
   }
 
-  print() {
+  toString() {
     if (this.#head === null) {
       console.log("Empty");
       return;
@@ -133,14 +133,12 @@ class LinkedList {
 
     while (temp !== null) {
       // Print value
-      process.stdout.write(`${temp.value}`);
-      // Print arrow if next element is not null
-      if (temp.nextNode !== null) process.stdout.write(" -> ");
+      process.stdout.write(`( ${temp.value} ) -> `);
 
       temp = temp.nextNode;
     }
 
-    process.stdout.write("\n");
+    process.stdout.write("null\n");
   }
 }
 
