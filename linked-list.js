@@ -17,12 +17,8 @@ class LinkedList {
       return;
     }
 
-    let temp = this.head;
-
-    while (temp.nextNode != null) temp = temp.nextNode;
-
-    temp.nextNode = newNode;
-    this.tail = newNode;
+    this.tail.nextNode = newNode; // Add new node to current tail
+    this.tail = newNode; // Set tail to new node
   }
 
   print() {
