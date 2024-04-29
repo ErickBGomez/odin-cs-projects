@@ -36,6 +36,21 @@ class LinkedList {
     this.head = newNode;
   }
 
+  size() {
+    if (this.head == null) {
+      return 0;
+    }
+
+    let temp = this.head;
+    let counter = 0;
+
+    while (temp != null) {
+      counter++;
+      temp = temp.nextNode;
+    }
+    return counter;
+  }
+
   print() {
     if (this.head == null) {
       console.log("Empty");
@@ -52,6 +67,8 @@ class LinkedList {
 
       temp = temp.nextNode;
     }
+
+    process.stdout.write("\n");
   }
 }
 
