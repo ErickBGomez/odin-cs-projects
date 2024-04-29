@@ -25,3 +25,6 @@ console.log(`Contains 10?: ${list.contains(10)}`);
 console.log(`Contains 12?: ${list.contains(12)}`);
 
 console.log(`Find index element using value: ${list.find(5)}`);
+console.log(list.size());
+console.log(list.removeAt(2));
+list.toString();

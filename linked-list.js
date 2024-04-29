@@ -108,6 +108,7 @@ class LinkedList {
     return -1;
   }
 
+  // Remove last
   pop() {
     if (this.#head === null) return -1;
 
@@ -121,6 +122,33 @@ class LinkedList {
     temp2.nextNode = null;
     this.#tail = temp2;
 
+    return temp.value;
+  }
+
+  // Extra: Remove middle
+  removeAt(index) {
+    if (this.#head === null || index < 0 || index >= this.size()) return -1;
+
+    if (index === 0) {
+      const popValue = this.#head.value;
+      this.#head = this.#head.nextNode;
+      return popValue;
+    }
+    if (index === this.size() - 1) {
+      return this.pop();
+    }
+
+    let temp = this.#head;
+    let temp2 = null;
+    let counter = 0;
+
+    while (counter < index) {
+      counter++;
+      temp2 = temp;
+      temp = temp.nextNode;
+    }
+
+    temp2.nextNode = temp.nextNode;
     return temp.value;
   }
 
