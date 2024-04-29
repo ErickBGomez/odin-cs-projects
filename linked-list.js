@@ -47,6 +47,35 @@ class LinkedList {
     this.#head = newNode;
   }
 
+  // Extra: Add middle
+  insertAt(value, index) {
+    if (this.#head === null || index < 0 || index > this.size()) return;
+
+    // Consider prepend and append to avoid repetition
+    if (index === 0) {
+      this.prepend(value);
+      return;
+    }
+    if (index === this.size()) {
+      this.append(value);
+      return;
+    }
+
+    const newNode = new Node(value);
+    let counter = 0;
+    let temp = this.#head;
+
+    // Stop one node before index
+    while (counter < index - 1) {
+      counter++;
+      temp = temp.nextNode;
+    }
+
+    // Set connections of nodes to insert new element
+    newNode.nextNode = temp.nextNode;
+    temp.nextNode = newNode;
+  }
+
   size() {
     if (this.#head === null) {
       return 0;

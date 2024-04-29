@@ -7,6 +7,7 @@ list.append(5);
 list.append(10);
 list.prepend(25);
 list.append(15);
+list.insertAt(2, 2);
 
 list.toString();
 
