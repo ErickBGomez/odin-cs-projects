@@ -36,6 +36,8 @@ class LinkedList {
       process.stdout.write(`${temp.value}`);
       // Print arrow if next element is not null
       if (temp.nextNode != null) process.stdout.write(" -> ");
+
+      temp = temp.nextNode;
     }
   }
 }
