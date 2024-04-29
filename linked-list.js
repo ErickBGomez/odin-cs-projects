@@ -22,6 +22,20 @@ class LinkedList {
     this.tail = newNode;
   }
 
+  // Add first
+  prepend(value) {
+    const newNode = new Node(value);
+
+    if (this.head == null) {
+      this.head = newNode;
+      this.tail = newNode;
+      return;
+    }
+
+    newNode.nextNode = this.head;
+    this.head = newNode;
+  }
+
   print() {
     if (this.head == null) {
       console.log("Empty");
