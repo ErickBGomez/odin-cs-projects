@@ -17,8 +17,10 @@ class LinkedList {
       return;
     }
 
-    this.tail.nextNode = newNode; // Add new node to current tail
-    this.tail = newNode; // Set tail to new node
+    // Add new node to current tail
+    this.tail.nextNode = newNode;
+    // Set tail to new node
+    this.tail = newNode;
   }
 
   print() {
@@ -30,8 +32,10 @@ class LinkedList {
     let temp = this.head;
 
     while (temp != null) {
-      console.log(`${temp.value} -> `);
-      temp = temp.nextNode;
+      // Print value
+      process.stdout.write(`${temp.value}`);
+      // Print arrow if next element is not null
+      if (temp.nextNode != null) process.stdout.write(" -> ");
     }
   }
 }
