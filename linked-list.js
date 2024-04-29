@@ -129,16 +129,16 @@ class LinkedList {
   removeAt(index) {
     if (this.#head === null || index < 0 || index >= this.size()) return -1;
 
+    let temp = this.#head;
+
     if (index === 0) {
-      const popValue = this.#head.value;
       this.#head = this.#head.nextNode;
-      return popValue;
+      return temp.value;
     }
     if (index === this.size() - 1) {
       return this.pop();
     }
 
-    let temp = this.#head;
     let temp2 = null;
     let counter = 0;
 
