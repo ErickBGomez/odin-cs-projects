@@ -95,6 +95,19 @@ class LinkedList {
     return temp.value;
   }
 
+  contains(value) {
+    if (this.#head === null) return false;
+
+    let temp = this.#head;
+
+    while (temp !== null) {
+      if (temp.value === value) return true;
+      temp = temp.nextNode;
+    }
+
+    return false;
+  }
+
   print() {
     if (this.#head === null) {
       console.log("Empty");

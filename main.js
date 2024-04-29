@@ -19,3 +19,6 @@ console.log(`Element index: ${list.at(2)}`);
 console.log(`Removed: ${list.pop()}`);
 console.log(`Tail: ${list.tail()}`);
 list.print();
+
+console.log(`Contains 10?: ${list.contains(10)}`);
+console.log(`Contains 12?: ${list.contains(12)}`);
