@@ -79,8 +79,24 @@ class LinkedList {
     return -1;
   }
 
+  pop() {
+    if (this.#head === null) return -1;
+
+    let temp = this.#tail;
+    let temp2 = this.#head;
+
+    while (temp2.nextNode !== temp) {
+      temp2 = temp2.nextNode;
+    }
+
+    temp2.nextNode = null;
+    this.#tail = temp2;
+
+    return temp.value;
+  }
+
   print() {
-    if (this.#head == null) {
+    if (this.#head === null) {
       console.log("Empty");
       return;
     }

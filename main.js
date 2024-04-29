@@ -14,4 +14,8 @@ console.log(`Size: ${list.size()}`);
 console.log(`Head: ${list.head()}`);
 console.log(`Tail: ${list.tail()}`);
 
-console.log(`Element index: ${list.at(4)}`);
+console.log(`Element index: ${list.at(2)}`);
+
+console.log(`Removed: ${list.pop()}`);
+console.log(`Tail: ${list.tail()}`);
+list.print();
