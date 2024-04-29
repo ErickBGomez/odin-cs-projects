@@ -2,46 +2,54 @@ import Node from "./node.js";
 
 class LinkedList {
   constructor() {
-    this.head = null;
-    this.tail = null;
+    this.headNode = null;
+    this.tailNode = null;
+  }
+
+  head() {
+    return this.headNode;
+  }
+
+  tail() {
+    return this.tailNode;
   }
 
   // Add last
   append(value) {
     const newNode = new Node(value);
 
-    if (this.head == null) {
-      this.head = newNode;
-      this.tail = newNode;
+    if (this.headNode == null) {
+      this.headNode = newNode;
+      this.tailNode = newNode;
       return;
     }
 
     // Add new node to current tail
-    this.tail.nextNode = newNode;
+    this.tailNode.nextNode = newNode;
     // Set tail to new node
-    this.tail = newNode;
+    this.tailNode = newNode;
   }
 
   // Add first
   prepend(value) {
     const newNode = new Node(value);
 
-    if (this.head == null) {
-      this.head = newNode;
-      this.tail = newNode;
+    if (this.headNode == null) {
+      this.headNode = newNode;
+      this.tailNode = newNode;
       return;
     }
 
-    newNode.nextNode = this.head;
-    this.head = newNode;
+    newNode.nextNode = this.headNode;
+    this.headNode = newNode;
   }
 
   size() {
-    if (this.head == null) {
+    if (this.headNode == null) {
       return 0;
     }
 
-    let temp = this.head;
+    let temp = this.headNode;
     let counter = 0;
 
     while (temp != null) {
@@ -52,12 +60,12 @@ class LinkedList {
   }
 
   print() {
-    if (this.head == null) {
+    if (this.headNode == null) {
       console.log("Empty");
       return;
     }
 
-    let temp = this.head;
+    let temp = this.headNode;
 
     while (temp != null) {
       // Print value

@@ -11,3 +11,5 @@ list.append(15);
 list.print();
 
 console.log(`Size: ${list.size()}`);
+console.log(`Head: ${list.head().value}`);
+console.log(`Tail: ${list.tail().value}`);
