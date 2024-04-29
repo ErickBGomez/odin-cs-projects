@@ -108,6 +108,21 @@ class LinkedList {
     return false;
   }
 
+  find(value) {
+    if (this.#head === null) return -1;
+
+    let temp = this.#head;
+    let index = 0;
+
+    while (temp !== null) {
+      if (temp.value === value) return index;
+      temp = temp.nextNode;
+      index++;
+    }
+
+    return -1;
+  }
+
   print() {
     if (this.#head === null) {
       console.log("Empty");

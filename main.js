@@ -14,7 +14,7 @@ console.log(`Size: ${list.size()}`);
 console.log(`Head: ${list.head()}`);
 console.log(`Tail: ${list.tail()}`);
 
-console.log(`Element index: ${list.at(2)}`);
+console.log(`Find element using index: ${list.at(2)}`);
 
 console.log(`Removed: ${list.pop()}`);
 console.log(`Tail: ${list.tail()}`);
@@ -22,3 +22,5 @@ list.print();
 
 console.log(`Contains 10?: ${list.contains(10)}`);
 console.log(`Contains 12?: ${list.contains(12)}`);
+
+console.log(`Find index element using value: ${list.find(5)}`);
