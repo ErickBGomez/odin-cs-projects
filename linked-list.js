@@ -6,6 +6,7 @@ class LinkedList {
     this.tail = null;
   }
 
+  // Add last
   append(value) {
     const newNode = new Node();
     newNode.value = value;
@@ -18,9 +19,10 @@ class LinkedList {
 
     let temp = this.head;
 
-    while (temp.next != null) temp = temp.nextNode;
+    while (temp.nextNode != null) temp = temp.nextNode;
 
     temp.nextNode = newNode;
+    this.tail = newNode;
   }
 
   print() {
