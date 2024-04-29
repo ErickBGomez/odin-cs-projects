@@ -10,18 +10,18 @@ class LinkedList {
   }
 
   head() {
-    return this.#head;
+    return this.#head.value;
   }
 
   tail() {
-    return this.#tail;
+    return this.#tail.value;
   }
 
   // Add last
   append(value) {
     const newNode = new Node(value);
 
-    if (this.#head == null) {
+    if (this.#head === null) {
       this.#head = newNode;
       this.#tail = newNode;
       return;
@@ -37,7 +37,7 @@ class LinkedList {
   prepend(value) {
     const newNode = new Node(value);
 
-    if (this.#head == null) {
+    if (this.#head === null) {
       this.#head = newNode;
       this.#tail = newNode;
       return;
@@ -48,14 +48,14 @@ class LinkedList {
   }
 
   size() {
-    if (this.#head == null) {
+    if (this.#head === null) {
       return 0;
     }
 
     let temp = this.#head;
     let counter = 0;
 
-    while (temp != null) {
+    while (temp !== null) {
       counter++;
       temp = temp.nextNode;
     }
@@ -63,8 +63,20 @@ class LinkedList {
   }
 
   at(index) {
-    if (this.#head == null) {
+    if (this.#head === null) {
+      return -1;
     }
+
+    let temp = this.#head;
+    let position = 0;
+
+    while (temp !== null) {
+      if (position === index) return temp.value;
+      temp = temp.nextNode;
+      position++;
+    }
+
+    return -1;
   }
 
   print() {
@@ -75,11 +87,11 @@ class LinkedList {
 
     let temp = this.#head;
 
-    while (temp != null) {
+    while (temp !== null) {
       // Print value
       process.stdout.write(`${temp.value}`);
       // Print arrow if next element is not null
-      if (temp.nextNode != null) process.stdout.write(" -> ");
+      if (temp.nextNode !== null) process.stdout.write(" -> ");
 
       temp = temp.nextNode;
     }
