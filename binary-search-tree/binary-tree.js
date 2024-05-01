@@ -1,4 +1,4 @@
-class Tree {
+class BinaryTree {
   #root = null;
   #array;
 
