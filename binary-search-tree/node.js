@@ -5,3 +5,5 @@ class Node {
     this.right = null;
   }
 }
+
+export default Node;
