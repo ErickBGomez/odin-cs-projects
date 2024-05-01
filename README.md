@@ -1,1 +1,1 @@
-The Odin Project Computer Science: Recursion project
+The Odin Project Computer Science Projects
