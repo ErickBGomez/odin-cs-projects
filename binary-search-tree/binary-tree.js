@@ -9,8 +9,8 @@ class BinaryTree {
 
     const root = new Node(array[mid]);
 
-    root.left = this.insertTreeNode(array, start, mid - 1);
-    root.right = this.insertTreeNode(array, mid + 1, end);
+    root.left = this.#insertTreeNode(array, start, mid - 1);
+    root.right = this.#insertTreeNode(array, mid + 1, end);
 
     return root;
   }
