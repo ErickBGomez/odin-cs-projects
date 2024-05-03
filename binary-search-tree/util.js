@@ -1,3 +1,5 @@
 const sortArray = (array = []) => {
-  array.sort();
+  return [...new Set(array)].sort((a, b) => a - b);
 };
+
+export default sortArray;
