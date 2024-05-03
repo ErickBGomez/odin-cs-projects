@@ -1,17 +1,24 @@
 import Node from "./node.js";
+import sortArray from "./util.js";
 
 class BinaryTree {
-  buildTree(array, start = 0, end = array.length - 1) {
+  #insertTreeNode(array, start, end) {
     if (start > end) return null;
 
     const mid = Math.trunc((start + end) / 2);
 
     const root = new Node(array[mid]);
 
-    root.left = this.buildTree(array, start, mid - 1);
-    root.right = this.buildTree(array, mid + 1, end);
+    root.left = this.insertTreeNode(array, start, mid - 1);
+    root.right = this.insertTreeNode(array, mid + 1, end);
 
     return root;
+  }
+
+  buildTree(array) {
+    const sortedArray = sortArray(array);
+
+    return this.#insertTreeNode(sortedArray, 0, sortedArray.length - 1);
   }
 
   prettyPrint(node, prefix = "", isLeft = true) {
