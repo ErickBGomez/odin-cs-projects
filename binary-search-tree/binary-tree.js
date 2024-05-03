@@ -1,5 +1,5 @@
 import Node from "./node.js";
-import sortArray from "./util.js";
+import sortAndRemoveDuplicted from "./util.js";
 
 class BinaryTree {
   #insertTreeNode(array, start, end) {
@@ -16,7 +16,7 @@ class BinaryTree {
   }
 
   buildTree(array) {
-    const sortedArray = sortArray(array);
+    const sortedArray = sortAndRemoveDuplicted(array);
 
     return this.#insertTreeNode(sortedArray, 0, sortedArray.length - 1);
   }
