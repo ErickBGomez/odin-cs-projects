@@ -1,24 +1,17 @@
 import Node from "./node.js";
 
 class BinaryTree {
-  #root = null;
-  #array;
-
-  constructor(array) {
-    this.#array = array;
-  }
-
-  buildTree(array, start, end) {
+  buildTree(array, start = 0, end = array.length - 1) {
     if (start > end) return null;
 
-    const mid = (start + end) / 2;
+    const mid = Math.trunc((start + end) / 2);
 
-    this.#root = new Node(array[mid]);
+    const root = new Node(array[mid]);
 
-    this.#root.left = this.buildTree(array, start, mid - 1);
-    this.#root.right = this.buildTree(array, mid + 1, end);
+    root.left = this.buildTree(array, start, mid - 1);
+    root.right = this.buildTree(array, mid + 1, end);
 
-    return this.#root;
+    return root;
   }
 
   prettyPrint(node, prefix = "", isLeft = true) {
