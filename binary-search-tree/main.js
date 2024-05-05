@@ -11,3 +11,4 @@ tree.prettyPrint();
 // tree.preOrder((value) => console.log(value));
 console.log(tree.preOrder());
 console.log(tree.inOrder());
+console.log(tree.postOrder());

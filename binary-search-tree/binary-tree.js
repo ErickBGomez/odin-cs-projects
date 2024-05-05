@@ -172,10 +172,12 @@ class BinaryTree {
   }
 
   preOrder(callback, subtree = this.root, array = []) {
+    // Base case: Empty subtree
     if (!subtree) return;
 
     if (callback) callback(subtree.value);
 
+    // Root - Left - Right
     array.push(subtree.value);
     this.preOrder(callback, subtree.left, array);
     this.preOrder(callback, subtree.right, array);
@@ -184,13 +186,29 @@ class BinaryTree {
   }
 
   inOrder(callback, subtree = this.root, array = []) {
+    // Base case: Empty subtree
     if (!subtree) return;
 
+    // Left - Root - Right
     if (callback) callback(subtree.value);
 
     this.inOrder(callback, subtree.left, array);
     array.push(subtree.value);
     this.inOrder(callback, subtree.right, array);
+
+    return array;
+  }
+
+  postOrder(callback, subtree = this.root, array = []) {
+    // Base case: Empty subtree
+    if (!subtree) return;
+
+    if (callback) callback(subtree.value);
+
+    // Left - Right - Root
+    this.postOrder(callback, subtree.left, array);
+    this.postOrder(callback, subtree.right, array);
+    array.push(subtree.value);
 
     return array;
   }
