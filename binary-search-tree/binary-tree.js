@@ -177,9 +177,20 @@ class BinaryTree {
     if (callback) callback(subtree.value);
 
     array.push(subtree.value);
-
     this.preOrder(callback, subtree.left, array);
     this.preOrder(callback, subtree.right, array);
+
+    return array;
+  }
+
+  inOrder(callback, subtree = this.root, array = []) {
+    if (!subtree) return;
+
+    if (callback) callback(subtree.value);
+
+    this.inOrder(callback, subtree.left, array);
+    array.push(subtree.value);
+    this.inOrder(callback, subtree.right, array);
 
     return array;
   }
