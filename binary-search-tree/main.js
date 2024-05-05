@@ -5,6 +5,6 @@ const tree = new BinaryTree();
 const tree2 = new BinaryTree();
 
 tree.buildTree([1, 2, 3, 4, 5, 6, 7]);
-tree.prettyPrint();
+// tree.prettyPrint();
 
-console.log(tree.find(3));
+tree.levelOrderIterative((value) => console.log(value));

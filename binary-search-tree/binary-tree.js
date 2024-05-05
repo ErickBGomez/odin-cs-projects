@@ -126,6 +126,23 @@ class BinaryTree {
   find(value) {
     return this.#findRecursive(value, this.root);
   }
+
+  levelOrderIterative(callback) {
+    if (!this.root) return [];
+
+    const queue = [this.root];
+
+    while (queue.length > 0) {
+      // Set node to first element from array (removed from queue)
+      const node = queue.shift();
+
+      if (callback) callback(node.value); // invoke callback if provided
+
+      // Add child nodes to queue
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+  }
 }
 
 export default BinaryTree;
