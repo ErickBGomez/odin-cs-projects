@@ -7,6 +7,7 @@ class BinaryTree {
   #buildTreeRecursive(array, start, end) {
     if (start > end) return null;
 
+    // Truncate to avoid decimal indexes
     const mid = Math.trunc((start + end) / 2);
 
     const node = new Node(array[mid]);
@@ -49,14 +50,17 @@ class BinaryTree {
   }
 
   #insertRecursive(value, node) {
+    // Base case: empty tree
     if (!node) {
       node = new Node(value);
       return node;
     }
 
     if (value < node.value) {
+      // Insert left node
       node.left = this.#insertRecursive(value, node.left);
     } else {
+      // Insert right node
       node.right = this.#insertRecursive(value, node.right);
     }
 
