@@ -143,6 +143,33 @@ class BinaryTree {
       if (node.right) queue.push(node.right);
     }
   }
+
+  #traverseOrder(queue, callback) {
+    // Base case: queue empty
+    if (queue.length <= 0) return;
+
+    const node = queue.shift();
+
+    // Invoke callback if provided
+    if (callback) callback(node.value);
+
+    // Add child nodes
+    if (node.left) queue.push(node.left);
+    if (node.right) queue.push(node.right);
+
+    // Keep recursion here
+    this.#traverseOrder(queue, callback);
+  }
+
+  levelOrderRecursive(callback) {
+    if (!this.root) return [];
+
+    // Create queue using root
+    const queue = [this.root];
+
+    // Use recursive method to traverse breadth-first level order
+    this.#traverseOrder(queue, callback);
+  }
 }
 
 export default BinaryTree;

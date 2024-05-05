@@ -7,4 +7,5 @@ const tree2 = new BinaryTree();
 tree.buildTree([1, 2, 3, 4, 5, 6, 7]);
 // tree.prettyPrint();
 
-tree.levelOrderIterative((value) => console.log(value));
+// tree.levelOrderIterative((value) => console.log(value));
+tree.levelOrderRecursive((value) => console.log(value));
