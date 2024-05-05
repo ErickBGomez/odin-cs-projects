@@ -221,6 +221,21 @@ class BinaryTree {
 
     return Math.max(leftHeight, rightHeight) + 1;
   }
+
+  depth(node = this.root, currentDepth = 0) {
+    if (!node) {
+      return -1;
+    }
+
+    if (!node.left && !node.right) {
+      return currentDepth;
+    }
+
+    const leftDepth = this.depth(node.left, currentDepth + 1);
+    const rightDepth = this.depth(node.right, currentDepth + 1);
+
+    return Math.max(leftDepth, rightDepth);
+  }
 }
 
 export default BinaryTree;
