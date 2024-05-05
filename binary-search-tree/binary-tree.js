@@ -112,6 +112,20 @@ class BinaryTree {
   deleteItem(value) {
     this.root = this.#deleteRecursive(value, this.root);
   }
+
+  #findRecursive(value, node) {
+    // Base case: Node found or node is null
+    if (value === node.value || !node) return node;
+
+    // If value is less than current node, go left
+    if (value < node.value) return this.#findRecursive(value, node.left);
+    // If value is greater than current node, go right
+    return this.#findRecursive(value, node.right);
+  }
+
+  find(value) {
+    return this.#findRecursive(value, this.root);
+  }
 }
 
 export default BinaryTree;
