@@ -1,5 +1,5 @@
 import Node from "./node.js";
-import sortAndRemoveDuplicted from "./util.js";
+import { sortAndRemoveDuplicted } from "./util.js";
 
 class BinaryTree {
   root;
