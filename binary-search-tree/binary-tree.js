@@ -236,6 +236,21 @@ class BinaryTree {
 
     return Math.max(leftDepth, rightDepth);
   }
+
+  isBalanced(node = this.root) {
+    if (!node) {
+      return true;
+    }
+
+    const leftHeight = this.height(node.left);
+    const rightHeight = this.height(node.right);
+
+    if (Math.abs(leftHeight - rightHeight) > 1) {
+      return false;
+    }
+
+    return this.isBalanced(node.left) && this.isBalanced(node.right);
+  }
 }
 
 export default BinaryTree;
