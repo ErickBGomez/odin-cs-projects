@@ -170,6 +170,19 @@ class BinaryTree {
     // Use recursive method to traverse breadth-first level order
     this.#traverseOrder(queue, callback);
   }
+
+  preOrder(callback, subtree = this.root, array = []) {
+    if (!subtree) return;
+
+    if (callback) callback(subtree.value);
+
+    array.push(subtree.value);
+
+    this.preOrder(callback, subtree.left, array);
+    this.preOrder(callback, subtree.right, array);
+
+    return array;
+  }
 }
 
 export default BinaryTree;
