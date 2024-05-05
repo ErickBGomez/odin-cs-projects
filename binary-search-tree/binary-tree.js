@@ -70,6 +70,48 @@ class BinaryTree {
   insert(value) {
     this.root = this.#insertRecursive(value, this.root);
   }
+
+  #minValue(node) {
+    while (node.left) {
+      node = node.left;
+    }
+
+    return node.value;
+  }
+
+  #deleteRecursive(value, node) {
+    // Base case: empty tree
+    if (!node) return node;
+
+    // Evaluate if value is less or greater than actual node
+    if (value < node.value) {
+      node.left = this.#deleteRecursive(value, node.left);
+    } else if (value > node.value) {
+      node.right = this.#deleteRecursive(value, node.right);
+    } else {
+      // If value == node.value, then node is found
+
+      // Deletion cases:
+      // Case 1: Leaf node (node with no children)
+      if (!node.left && !node.right) return null;
+      // Case 2: Node with only left child
+      else if (!node.left) return node.right;
+      // Case 3: Node with only right child
+      else if (!node.right) return node.left;
+      else {
+        // Case 4: Node with both children: Find min value in the right subtree
+        const minValue = this.#minValue(node.right);
+        node.value = minValue;
+        node.right = this.#deleteRecursive(minValue, node.right);
+      }
+    }
+
+    return node;
+  }
+
+  deleteItem(value) {
+    this.root = this.#deleteRecursive(value, this.root);
+  }
 }
 
 export default BinaryTree;
