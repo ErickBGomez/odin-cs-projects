@@ -251,6 +251,13 @@ class BinaryTree {
 
     return this.isBalanced(node.left) && this.isBalanced(node.right);
   }
+
+  rebalance() {
+    // Use inOrder to get sortedArray
+    const sortedArray = this.inOrder();
+    // Replace root node to new provided tree
+    return this.buildTree(sortedArray);
+  }
 }
 
 export default BinaryTree;
