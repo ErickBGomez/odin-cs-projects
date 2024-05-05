@@ -20,4 +20,4 @@ const randomArray = (length, min, max) => {
   return array;
 };
 
-export { sortAndRemoveDuplicted, randomArray };
+export { sortAndRemoveDuplicted, randomArray, randomInt };
