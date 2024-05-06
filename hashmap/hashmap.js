@@ -64,6 +64,12 @@ class HashMap {
 
     return this.#buckets[index].contains(key);
   }
+
+  remove(key) {
+    const index = this.hash(key);
+
+    if (!this.#buckets[index]) return false;
+  }
 }
 
 export default HashMap;

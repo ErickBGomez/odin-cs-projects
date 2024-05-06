@@ -15,6 +15,13 @@ map.set("Carlos", "Lopez");
 map.set("Erick", "Gomez");
 map.set("Erikc", "Hernandez");
 
+// console.log(map.get("Erick"));
+// console.log(map.get("a"));
+// console.log(map.get("Carlos"));
+
+console.log(map.has("Erick"));
+console.log(map.has("yo"));
+
 // list.insert("Carlos", "Smith");
 // console.log(list.contains("Carlos"));
 // console.log(list.contains("you"));
