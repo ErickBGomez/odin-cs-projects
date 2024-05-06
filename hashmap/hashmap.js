@@ -87,6 +87,11 @@ class HashMap {
 
     return counter;
   }
+
+  clear() {
+    // Reset buckets
+    this.#buckets = new Array(this.#hashSize);
+  }
 }
 
 export default HashMap;
