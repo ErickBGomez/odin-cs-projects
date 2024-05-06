@@ -92,6 +92,17 @@ class HashMap {
     // Reset buckets
     this.#buckets = new Array(this.#hashSize);
   }
+
+  keys() {
+    const keys = [];
+
+    this.#buckets.forEach((bucket) => {
+      // Spread operator to add keys from current linked list
+      if (bucket) keys.push(...bucket.getKeys());
+    });
+
+    return keys;
+  }
 }
 
 export default HashMap;
