@@ -47,6 +47,15 @@ class HashMap {
       return;
     }
   }
+
+  get(key) {
+    const index = this.hash(key);
+
+    if (!this.#buckets[index]) return "";
+
+    const nodeFound = this.#buckets[index].getNode(key);
+    return nodeFound.value;
+  }
 }
 
 export default HashMap;

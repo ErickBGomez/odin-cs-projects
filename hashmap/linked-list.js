@@ -39,7 +39,7 @@ class LinkedList {
     return temp.key === key;
   }
 
-  #getNode(key) {
+  getNode(key) {
     if (!this.head) return null;
 
     let temp = this.head;
@@ -55,7 +55,7 @@ class LinkedList {
   replaceValue(key, newValue) {
     if (!this.head) return;
 
-    let node = this.#getNode(key);
+    let node = this.getNode(key);
     node.value = newValue;
   }
 }
