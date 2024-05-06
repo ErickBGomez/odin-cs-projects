@@ -55,7 +55,7 @@ class LinkedList {
 
   delete(key) {
     // Base case: empty list
-    if (!this.head) return null;
+    if (!this.head || !this.contains(key)) return null;
 
     let temp = this.head;
 
