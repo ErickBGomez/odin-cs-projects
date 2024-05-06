@@ -1,3 +1,5 @@
+import LinkedList from "./linked-list.js";
+
 class HashMap {
   #hashSize = 16;
   #buckets;
@@ -21,15 +23,25 @@ class HashMap {
 
   set(key, value) {
     // Check resizing buckets later
-    const bucketIndex = this.hash(key);
+    const index = this.hash(key);
+
+    // Case 0: Bucket is empty
+    if (!this.#buckets[index]) {
+      this.#buckets[index] = new LinkedList();
+      this.#buckets[index].insert(key, value);
+      console.log(this.#buckets);
+      return;
+    }
 
     // Case 1: Same keys -> Overwrite value
-    this.#buckets[bucketIndex] = { key, value };
+    if (this.#buckets[index].contains(key)) {
+      console.log("Replace");
+      this.#buckets[index].replaceValue(key, value);
+      console.log(this.#buckets);
+      return;
+    }
 
     // Case 2: Different keys, same hash -> Avoid collision
-
-    console.log(bucketIndex);
-    console.log(this.#buckets);
   }
 }
 
