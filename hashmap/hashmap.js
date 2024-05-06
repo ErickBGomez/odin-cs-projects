@@ -19,7 +19,18 @@ class HashMap {
     return hashCode % this.#hashSize;
   }
 
-  set(key, value) {}
+  set(key, value) {
+    // Check resizing buckets later
+    const bucketIndex = this.hash(key);
+
+    // Case 1: Same keys -> Overwrite value
+    this.#buckets[bucketIndex] = { key, value };
+
+    // Case 2: Different keys, same hash -> Avoid collision
+
+    console.log(bucketIndex);
+    console.log(this.#buckets);
+  }
 }
 
 export default HashMap;
