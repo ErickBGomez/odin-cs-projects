@@ -114,6 +114,16 @@ class HashMap {
 
     return values;
   }
+
+  entries() {
+    const entries = [];
+
+    this.#buckets.forEach((bucket) => {
+      if (bucket) entries.push(...bucket.getKeyValuePairs());
+    });
+
+    return entries;
+  }
 }
 
 export default HashMap;

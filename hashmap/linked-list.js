@@ -120,6 +120,20 @@ class LinkedList {
     return values;
   }
 
+  getKeyValuePairs() {
+    if (!this.head) return [];
+
+    const pairs = [];
+    let temp = this.head;
+
+    while (temp) {
+      pairs.push([temp.key, temp.value]);
+      temp = temp.next;
+    }
+
+    return pairs;
+  }
+
   // Utility methods
   print() {
     if (!this.head) return;
