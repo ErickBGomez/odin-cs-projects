@@ -6,7 +6,7 @@ class HashMap extends Hash {
     super();
   }
 
-  // Method implementations:
+  // Hash method implementations:
   // Set: key and value
   set(key, value) {
     // Resize when map reached loadFactor threshold
@@ -28,6 +28,18 @@ class HashMap extends Hash {
     else this.buckets[index].insert(key, value);
   }
 
+  resize() {
+    const previousEntries = this.entries();
+    this.hashSize *= 2;
+    this.clear();
+
+    // Re-assign hashes
+    previousEntries.forEach((entry) => {
+      this.set(entry[0], entry[1]);
+    });
+  }
+
+  // Hashmap methods:
   values() {
     const values = [];
 
@@ -47,17 +59,6 @@ class HashMap extends Hash {
     });
 
     return entries;
-  }
-
-  resize() {
-    const previousEntries = this.entries();
-    this.hashSize *= 2;
-    this.clear();
-
-    // Re-assign hashes
-    previousEntries.forEach((entry) => {
-      this.set(entry[0], entry[1]);
-    });
   }
 }
 

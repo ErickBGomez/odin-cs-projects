@@ -1,5 +1,3 @@
-import LinkedList from "./linked-list.js";
-
 class HashMap {
   hashSize;
   buckets;
@@ -13,8 +11,6 @@ class HashMap {
 
   // Methods to implement:
   set() {}
-  values() {}
-  entries() {}
   resize() {}
 
   hash(key) {
