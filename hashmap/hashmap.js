@@ -49,23 +49,13 @@ class HashMap {
     if (!this.#buckets[index]) {
       this.#buckets[index] = new LinkedList();
       this.#buckets[index].insert(key, value);
-      console.log(this.#buckets);
-      return;
     }
 
     // Case 1: Same keys -> Overwrite value
-    if (this.#buckets[index].contains(key)) {
+    else if (this.#buckets[index].contains(key))
       this.#buckets[index].replaceValue(key, value);
-      console.log(this.#buckets);
-      return;
-    }
-
     // Case 2: Different keys, same hash -> Avoid collision
-    if (this.#buckets[index]) {
-      this.#buckets[index].insert(key, value);
-      console.log(this.#buckets);
-      return;
-    }
+    else this.#buckets[index].insert(key, value);
   }
 
   get(key) {
@@ -74,8 +64,7 @@ class HashMap {
     if (!this.#buckets[index]) return "";
 
     // Get value of current linked list
-    const nodeFound = this.#buckets[index].getNode(key);
-    return nodeFound.value;
+    return this.#buckets[index].getNode(key);
   }
 
   has(key) {
@@ -93,8 +82,7 @@ class HashMap {
     if (!this.#buckets[index]) return false;
 
     // Delete node from current linked list in selected bucket
-    const deletedNode = this.#buckets[index].delete(key);
-    return Boolean(deletedNode);
+    return Boolean(this.#buckets[index].delete(key));
   }
 
   length() {
