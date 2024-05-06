@@ -35,13 +35,17 @@ class HashMap {
 
     // Case 1: Same keys -> Overwrite value
     if (this.#buckets[index].contains(key)) {
-      console.log("Replace");
       this.#buckets[index].replaceValue(key, value);
       console.log(this.#buckets);
       return;
     }
 
     // Case 2: Different keys, same hash -> Avoid collision
+    if (this.#buckets[index]) {
+      this.#buckets[index].insert(key, value);
+      console.log(this.#buckets);
+      return;
+    }
   }
 }
 
