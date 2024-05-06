@@ -17,13 +17,40 @@ class LinkedList {
     }
 
     // Add node to end of list
-    const temp = this.head;
+    let temp = this.head;
 
     while (temp.next) {
       temp = temp.next;
     }
 
     temp.next = newNode;
+  }
+
+  contains(key) {
+    if (!this.head) return false;
+
+    let temp = this.head;
+
+    // Find node with same key
+    while (temp.next && temp.key !== key) {
+      temp = temp.next;
+    }
+
+    return temp.key === key;
+  }
+
+  replaceValue(key, newValue) {
+    if (!this.head) return;
+
+    let temp = this.head;
+
+    // Find node with same key
+    while (temp.next && temp.key !== key) {
+      temp = temp.next;
+    }
+
+    // Replace value
+    temp.value = newValue;
   }
 }
 
