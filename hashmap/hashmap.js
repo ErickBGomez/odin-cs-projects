@@ -56,6 +56,14 @@ class HashMap {
     const nodeFound = this.#buckets[index].getNode(key);
     return nodeFound.value;
   }
+
+  has(key) {
+    const index = this.hash(key);
+
+    if (!this.#buckets[index]) return false;
+
+    return this.#buckets[index].contains(key);
+  }
 }
 
 export default HashMap;
