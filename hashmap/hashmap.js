@@ -1,13 +1,30 @@
 import LinkedList from "./linked-list.js";
 
 class HashMap {
-  #hashSize = 16;
+  #hashSize;
   #buckets;
-  #capacity;
+  #loadFactor;
 
   constructor() {
+    this.#hashSize = 16;
+    this.#loadFactor = 0.75;
     this.#buckets = new Array(this.#hashSize);
-    this.#capacity = this.#buckets.length;
+  }
+
+  #getOccupiedBuckets() {
+    // Length of bucket with elements
+    return this.#buckets.filter((bucket) => bucket).length;
+  }
+
+  #resize() {
+    const previousEntries = this.entries();
+    this.#hashSize *= 2;
+    this.clear();
+
+    // Re-assign hashes
+    previousEntries.forEach((entry) => {
+      this.set(entry[0], entry[1]);
+    });
   }
 
   hash(key) {
@@ -22,7 +39,10 @@ class HashMap {
   }
 
   set(key, value) {
-    // Check resizing buckets later
+    // Resize when map reached loadFactor threshold
+    if (this.#getOccupiedBuckets() / this.#hashSize >= this.#loadFactor)
+      this.#resize();
+
     const index = this.hash(key);
 
     // Case 0: Bucket is empty
