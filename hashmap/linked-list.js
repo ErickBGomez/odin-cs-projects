@@ -24,3 +24,5 @@ class LinkedList {
     this.#tail = newNode;
   }
 }
+
+export default LinkedList;
