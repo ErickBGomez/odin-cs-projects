@@ -77,6 +77,20 @@ class LinkedList {
 
     return temp;
   }
+
+  // Utility methods
+  print() {
+    if (!this.head) return;
+
+    let temp = this.head;
+
+    while (temp) {
+      process.stdout.write(`(k: ${temp.key}, v: ${temp.value}) -> `);
+      temp = temp.next;
+    }
+
+    process.stdout.write("null\n");
+  }
 }
 
 export default LinkedList;
