@@ -19,9 +19,7 @@ class LinkedList {
     // Add node to end of list
     let temp = this.head;
 
-    while (temp.next) {
-      temp = temp.next;
-    }
+    while (temp.next) temp = temp.next;
 
     temp.next = newNode;
   }
@@ -32,9 +30,7 @@ class LinkedList {
     let temp = this.head;
 
     // Find node with same key
-    while (temp.next && temp.key !== key) {
-      temp = temp.next;
-    }
+    while (temp.next && temp.key !== key) temp = temp.next;
 
     return temp.key === key;
   }
@@ -45,9 +41,7 @@ class LinkedList {
     let temp = this.head;
 
     // Find node with same key
-    while (temp.next && temp.key !== key) {
-      temp = temp.next;
-    }
+    while (temp.next && temp.key !== key) temp = temp.next;
 
     return temp;
   }
@@ -66,9 +60,8 @@ class LinkedList {
     let temp = this.head;
 
     // Case 1: delete head node
-    if (this.head.key === key) {
-      this.head = temp.next;
-    } else {
+    if (this.head.key === key) this.head = temp.next;
+    else {
       let temp2 = null;
 
       while (temp.next && temp.key !== key) {
@@ -76,13 +69,10 @@ class LinkedList {
         temp = temp.next;
       }
 
-      if (temp.next) {
-        // Case 2: delete middle node
-        temp2.next = temp.next;
-      } else {
-        // Case 3: delete last node
-        temp2.next = null;
-      }
+      // Case 2: delete middle node
+      if (temp.next) temp2.next = temp.next;
+      // Case 3: delete last node
+      else temp2.next = null;
     }
 
     return temp;
