@@ -92,6 +92,20 @@ class LinkedList {
     return counter;
   }
 
+  getKeys() {
+    if (!this.head) return [];
+
+    const keys = [];
+    let temp = this.head;
+
+    while (temp) {
+      keys.push(temp.key);
+      temp = temp.next;
+    }
+
+    return keys;
+  }
+
   // Utility methods
   print() {
     if (!this.head) return;
