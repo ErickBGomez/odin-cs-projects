@@ -106,6 +106,20 @@ class LinkedList {
     return keys;
   }
 
+  getValues() {
+    if (!this.head) return [];
+
+    const values = [];
+    let temp = this.head;
+
+    while (temp) {
+      values.push(temp.value);
+      temp = temp.next;
+    }
+
+    return values;
+  }
+
   // Utility methods
   print() {
     if (!this.head) return;

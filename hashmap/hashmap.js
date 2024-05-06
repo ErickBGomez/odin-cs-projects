@@ -103,6 +103,17 @@ class HashMap {
 
     return keys;
   }
+
+  values() {
+    const values = [];
+
+    this.#buckets.forEach((bucket) => {
+      // Spread operator to add values from current linked list
+      if (bucket) values.push(...bucket.getValues());
+    });
+
+    return values;
+  }
 }
 
 export default HashMap;
