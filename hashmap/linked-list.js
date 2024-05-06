@@ -1,27 +1,29 @@
 import Node from "./node.js";
 
 class LinkedList {
-  #head;
-  #tail;
+  head;
 
   constructor() {
-    this.#head = null;
-    this.#tail = null;
+    this.head = null;
   }
 
   insert(key, value) {
     const newNode = new Node(key, value);
 
     // Empty list
-    if (!this.#head) {
-      this.#head = newNode;
-      this.#tail = newNode;
+    if (!this.head) {
+      this.head = newNode;
       return;
     }
 
     // Add node to end of list
-    this.#tail.next = newNode;
-    this.#tail = newNode;
+    const temp = this.head;
+
+    while (temp.next) {
+      temp = temp.next;
+    }
+
+    temp.next = newNode;
   }
 }
 
