@@ -69,6 +69,9 @@ class HashMap {
     const index = this.hash(key);
 
     if (!this.#buckets[index]) return false;
+
+    const deletedNode = this.#buckets[index].delete(key);
+    return Boolean(deletedNode);
   }
 }
 
