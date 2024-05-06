@@ -78,6 +78,20 @@ class LinkedList {
     return temp;
   }
 
+  getSize() {
+    if (!this.head) return 0;
+
+    let counter = 0;
+    let temp = this.head;
+
+    while (temp) {
+      counter++;
+      temp = temp.next;
+    }
+
+    return counter;
+  }
+
   // Utility methods
   print() {
     if (!this.head) return;

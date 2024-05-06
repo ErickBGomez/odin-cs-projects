@@ -73,6 +73,17 @@ class HashMap {
     const deletedNode = this.#buckets[index].delete(key);
     return Boolean(deletedNode);
   }
+
+  length() {
+    let counter = 0;
+
+    this.#buckets.forEach((bucket) => {
+      // Add size for each linked list with nodes
+      if (bucket) counter += bucket.getSize();
+    });
+
+    return counter;
+  }
 }
 
 export default HashMap;
