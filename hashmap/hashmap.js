@@ -53,6 +53,7 @@ class HashMap {
 
     if (!this.#buckets[index]) return "";
 
+    // Get value of current linked list
     const nodeFound = this.#buckets[index].getNode(key);
     return nodeFound.value;
   }
@@ -62,6 +63,7 @@ class HashMap {
 
     if (!this.#buckets[index]) return false;
 
+    // Check if current linked list has node with same key
     return this.#buckets[index].contains(key);
   }
 
@@ -70,6 +72,7 @@ class HashMap {
 
     if (!this.#buckets[index]) return false;
 
+    // Delete node from current linked list in selected bucket
     const deletedNode = this.#buckets[index].delete(key);
     return Boolean(deletedNode);
   }
