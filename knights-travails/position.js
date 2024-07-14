@@ -4,6 +4,10 @@ class Position {
     this.y = y;
   }
 
+  equals(pos) {
+    return this.x === pos.x && this.y === pos.y;
+  }
+
   toArray() {
     return [x, y];
   }
