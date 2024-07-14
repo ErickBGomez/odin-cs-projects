@@ -1,1 +1,2 @@
-console.log("hi");
+import knightMoves from "./knightMoves.js";
+knightMoves();
