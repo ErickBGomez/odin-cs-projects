@@ -19,6 +19,19 @@ function knightMoves(start, end) {
   const startPos = new Position(...start);
   const endPos = new Position(...end);
 
+  if (!(betweenBounds(startPos) && betweenBounds(endPos))) {
+    console.log(
+      "Not a valid position (Must be between 0 and 7 for columns and rows)"
+    );
+    return;
+  }
+
+  const path = calculateMoves(startPos, endPos);
+
+  console.log(`You made it in ${path.length - 1} moves! Here's your path: `);
+}
+
+function calculateMoves(startPos, endPos) {
   const visited = [];
   const queue = [{ position: startPos, path: [startPos] }];
 
