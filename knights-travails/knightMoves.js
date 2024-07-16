@@ -31,9 +31,11 @@ function knightMoves(start, end) {
       return console.log("Node found!");
     }
 
+    // Calculate new position based on valid movements of the knight
     moves.forEach((move) => {
       const newPos = new Position(currentPos.x + move.x, currentPos.y + move.y);
 
+      // New position is on the board and hasn't been visited yet.
       if (betweenBounds(newPos) && !visited.find((pos) => pos.equals(newPos))) {
         posQueue.push(newPos);
         visited.push(newPos);
