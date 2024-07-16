@@ -19,26 +19,31 @@ function knightMoves(start, end) {
   const startPos = new Position(...start);
   const endPos = new Position(...end);
 
-  const posQueue = [startPos];
   const visited = [];
+  const queue = [{ position: startPos, path: [startPos] }];
 
-  while (posQueue.length) {
+  while (queue.length) {
     // Get current state of square position and path
-    const currentPos = posQueue.shift();
+    const current = queue.shift();
+    const currentPos = current.position;
+    const currentPath = current.path;
     visited.push(currentPos);
 
     // If end square is found, return path
     if (currentPos.equals(endPos)) {
-      return console.log("Node found!");
+      console.log("Node found!");
+      return currentPath;
     }
 
     // Calculate new position based on valid movements of the knight
     moves.forEach((move) => {
       const newPos = new Position(currentPos.x + move.x, currentPos.y + move.y);
+      const newPath = currentPath.slice();
 
       // New position is on the board and hasn't been visited yet.
       if (betweenBounds(newPos) && !visited.find((pos) => pos.equals(newPos))) {
-        posQueue.push(newPos);
+        newPath.push(newPos);
+        queue.push({ position: newPos, path: newPath });
       }
     });
   }
