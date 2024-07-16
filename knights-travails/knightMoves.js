@@ -28,7 +28,8 @@ function knightMoves(start, end) {
 
   const path = calculateMoves(startPos, endPos);
 
-  console.log(`You made it in ${path.length - 1} moves! Here's your path: `);
+  console.log(`You made it in ${path.length - 1} moves! Here's your path:`);
+  path.forEach((pos) => console.log(pos.toArray()));
 }
 
 function calculateMoves(startPos, endPos) {
