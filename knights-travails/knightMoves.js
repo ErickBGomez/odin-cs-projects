@@ -43,10 +43,7 @@ function calculateMoves(startPos, endPos) {
     visited.push(currentPos);
 
     // If end square is found, return path
-    if (currentPos.equals(endPos)) {
-      console.log("Node found!");
-      return currentPath;
-    }
+    if (currentPos.equals(endPos)) return currentPath;
 
     // Calculate new position based on valid movements of the knight
     moves.forEach((move) => {

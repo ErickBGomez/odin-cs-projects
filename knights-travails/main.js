@@ -1,2 +1,2 @@
 import knightMoves from "./knightMoves.js";
-knightMoves([-1, 0], [3, 7]);
+knightMoves([0, 0], [3, 3]);
