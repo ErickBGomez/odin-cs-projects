@@ -12,7 +12,7 @@ const moves = [
 ];
 
 function betweenBounds(pos) {
-  return pos.x >= 0 && pos.x <= 8 && pos.y >= 0 && pos.y <= 8;
+  return pos.x >= 0 && pos.x < 8 && pos.y >= 0 && pos.y < 8;
 }
 
 function knightMoves(start, end) {
