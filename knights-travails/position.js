@@ -9,7 +9,7 @@ class Position {
   }
 
   toArray() {
-    return [x, y];
+    return [this.x, this.y];
   }
 }
 

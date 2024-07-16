@@ -20,21 +20,22 @@ function knightMoves(start, end) {
   const endPos = new Position(...end);
 
   const posQueue = [startPos];
-  const pathQueue = [[startPos]];
-  const visited = [startPos];
 
-  while (queue.length) {
+  while (posQueue.length) {
     // Get current state of square position and path
     const currentPos = posQueue.shift();
-    const path = pathQueue.shift();
 
     // If end square is found, return path
-    if (currentPos.equals(end)) return path;
+    if (currentPos.equals(endPos)) return console.log("Node found!");
 
     moves.forEach((move) => {
       const newPos = new Position(currentPos.x + move.x, currentPos.y + move.y);
 
-      if (betweenBounds(newPos));
+      if (betweenBounds(newPos)) {
+        posQueue.push(newPos);
+        console.log(newPos.toArray());
+        console.log("Between bounds");
+      }
     });
   }
 }
